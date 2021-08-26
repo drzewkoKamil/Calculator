@@ -32,3 +32,7 @@ function operate(operator, a, b) {
             break;
     }
 }
+
+window.onclick = e =>{
+    console.log(e.target.id);
+}

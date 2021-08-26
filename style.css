@@ -1,9 +1,13 @@
 .container {
     display: grid; 
     grid-template-columns: repeat(4, 80px); 
-    grid-template-rows: repeat(4, 50px); 
+    grid-template-rows: repeat(6, 50px); 
     grid-column-gap: 10px;
     grid-row-gap: 10px; 
+    height:100vw;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
 }
 
 
@@ -14,14 +18,31 @@
     margin: auto auto;
     cursor:pointer;
     color:#666666;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
     padding: 15px 35px;
     text-decoration:none;
 }
-.eqButton { grid-area: 4 / 2 / 5 / 4;
+#eqButton { grid-area: 5 / 2 / 5 / 4;
 padding: 15px 80px;}
+
+#textDisplayBox{
+    grid-area: 1 / 1 / 1 / 5;
+    background-color:#e9e9e9;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:flex
+}
+
+#clearButton{
+    background-color:#e9e9e9;
+    display:flex;
+    grid-area:6/2/6/4;
+}
+
+.buttonText{
+    text-decoration: none;
+    margin: auto auto;
+    color: #000000;
+}
 
 .button:hover {
     background-color:#f6f6f6;
@@ -29,4 +50,13 @@ padding: 15px 80px;}
 .button:active {
     position:relative;
     top:1px;
+}
+
+.flexContainer{
+    display:flex;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
