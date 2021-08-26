@@ -64,10 +64,17 @@ function operatorButton(id) {
 
 function eqButtonClick(){
     let b = parseInt(document.getElementById("buttonText").textContent)
-    let result = operate(operator, a, b)
-    operator = ""
-    a = 0
-    b = 0
-    displayValue = result
-    document.getElementById("buttonText").textContent = displayValue
+    console.log(b);
+    if (b!=NaN) {
+        let result = operate(operator, a, b)
+        operator = ""
+        a = 0
+        b = 0
+        displayValue = result
+        document.getElementById("buttonText").textContent = displayValue     
+    }
+    else{
+        clearValue()
+    }
+
 }
