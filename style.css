@@ -60,3 +60,7 @@ padding: 15px 80px;}
     justify-content: center;
     align-items: center;
 }
+
+.operatorButton{
+    background-color: rgba(181, 204, 255, 0.534);
+}
