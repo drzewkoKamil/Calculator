@@ -33,6 +33,13 @@ function operate(operator, a, b) {
     }
 }
 
-window.onclick = e =>{
-    console.log(e.target.id);
+let displayValue = document.getElementById("buttonText").textContent;
+
+function updateValue(id) {
+    displayValue += id
+    document.getElementById("buttonText").textContent = displayValue
+}
+
+function clearValue(){
+    document.getElementById("buttonText").textContent = ""
 }
