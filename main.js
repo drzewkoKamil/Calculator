@@ -1,21 +1,15 @@
-function add(a, b) {
-    return a + b
-}
+const add = (a, b) => a + b;
 
-function subtract(a, b) {
-    return a - b
-}
+const subtract = (a, b) => a - b;
 
-function multiply(a, b) {
-    return a * b
-}
+const multiply = (a, b) => a * b;
 
-function divide(a, b) {
+const divide = (a, b) => {
     if (b===0) {
         return "Cannot divide by 0"
     }
     return a / b
-}
+};
 
 function operate(operator, a, b) {
     switch (operator) {
@@ -36,45 +30,58 @@ function operate(operator, a, b) {
     }
 }
 
-let displayValue = document.getElementById("buttonText").textContent;
-
 function updateValue(id) {
-    displayValue += id
+    if (check) {
+        a = parseInt(document.getElementById("buttonText").textContent);
+        displayValue = "";
+        document.getElementById("buttonText").textContent = displayValue;
+        check = false;
+    }
+    displayValue += id;
     document.getElementById("buttonText").textContent = displayValue
 }
 
 function clearValue(){
     document.getElementById("buttonText").textContent = ""
     displayValue = ""
-    a = 0
-    b = 0
-    operator = ""
+    a = ""
+    b = ""
+    check = false
 }
 
-let a = 0
-let b = 0
-let operator = ""
-
 function operatorButton(id) {
-    a = parseInt(document.getElementById("buttonText").textContent);
-    operator = id
-    displayValue = ""
-    document.getElementById("buttonText").textContent = displayValue
+    if (a !== "") {
+        eqButtonClick();
+        check = true;
+        operator = id;
+    } else {
+        a = parseInt(document.getElementById("buttonText").textContent);
+        if (isNaN(a)) {
+            return
+        }
+        operator = id;
+        displayValue = ""
+        document.getElementById("buttonText").textContent = displayValue
+    }
 }
 
 function eqButtonClick(){
-    let b = parseInt(document.getElementById("buttonText").textContent)
-    console.log(b);
-    if (b!=NaN) {
-        let result = operate(operator, a, b)
-        operator = ""
-        a = 0
-        b = 0
-        displayValue = result
-        document.getElementById("buttonText").textContent = displayValue     
+    b = parseInt(document.getElementById("buttonText").textContent)
+    console.log("a: ", a);
+    console.log("b: ", b);
+    if (isNaN(b)) {
+        return
     }
-    else{
-        clearValue()
-    }
-
+    let result = operate(operator, a, b);
+    console.log(result)
+    clearValue()
+    displayValue = result;
+    document.getElementById("buttonText").textContent = displayValue;
 }
+
+let displayValue
+let a
+let b
+let operator
+let check
+clearValue()
