@@ -26,7 +26,7 @@ function operate(operator, a, b) {
 
 function updateValue(id) {
     if (check) {
-        a = parseInt(document.getElementById("buttonText").textContent);
+        a = parseFloat(document.getElementById("buttonText").textContent);
         displayValue = "";
         document.getElementById("buttonText").textContent = displayValue;
         check = false;
@@ -49,7 +49,7 @@ function operatorButton(id) {
         check = true;
         operator = id;
     } else {
-        a = parseInt(document.getElementById("buttonText").textContent);
+        a = parseFloat(document.getElementById("buttonText").textContent);
         if (isNaN(a)) {
             return
         }
@@ -60,13 +60,16 @@ function operatorButton(id) {
 }
 
 function eqButtonClick(){
-    b = parseInt(document.getElementById("buttonText").textContent)
+    b = parseFloat(document.getElementById("buttonText").textContent)
     console.log("a: ", a);
     console.log("b: ", b);
     if (isNaN(b)) {
         return
     }
     let result = operate(operator, a, b);
+    if (result !== "Cannot divide by 0") {
+        result = Math.round((result + Number.EPSILON) * 100) / 100;
+    }
     console.log(result)
     clearValue()
     displayValue = result;
