@@ -12,21 +12,15 @@ const divide = (a, b) => {
 };
 
 function operate(operator, a, b) {
-    switch (operator) {
-        case "+":
-            return(add(a,b))
-            break;
-        case "-":
-            return(subtract(a,b))
-            break;
-        case "*":
-            return(multiply(a,b))
-            break;
-        case "/":
-            return(divide(a,b))
-            break;
-        default:
-            break;
+    if (operator === "+") {
+        return (add(a, b))
+    } else if (operator === "-") {
+        return (subtract(a, b))
+    } else if (operator === "*") {
+        return (multiply(a, b))
+    } else if (operator === "/") {
+        return (divide(a, b))
+    } else {
     }
 }
 
